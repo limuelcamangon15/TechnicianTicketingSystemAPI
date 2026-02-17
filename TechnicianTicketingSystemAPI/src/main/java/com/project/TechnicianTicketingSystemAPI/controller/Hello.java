@@ -1,4 +1,4 @@
-package com.project.TechnicianTicketingSystemAPI.Controller;
+package com.project.TechnicianTicketingSystemAPI.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
