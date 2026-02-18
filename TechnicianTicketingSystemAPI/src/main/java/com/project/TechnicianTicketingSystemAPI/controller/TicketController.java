@@ -18,6 +18,52 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
+    // POST
+    @PostMapping
+    public Ticket createTicket(@RequestBody Ticket ticket){
+        return ticketService.createTicket(ticket);
+    }
+
+    // GET
+    @GetMapping
+    public List<Ticket> getAllTickets(){
+        return ticketService.getAllTickets();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Ticket> getTicketById(@PathVariable Long id){
+        return ticketService.getTicketById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/first")
+    public Ticket getFirstTicket(){
+        return ticketService.getFirstTicket();
+    }
+
+    @GetMapping("/last")
+    public Ticket getLastTicket(){
+        return ticketService.getLastTicket();
+    }
+
+    // PUT
+    @PutMapping("/{id}")
+    public Ticket updateTicket(@PathVariable Long id, @RequestBody Ticket ticket){
+        ticket.setTicketId(id);
+        return ticketService.updateTicket(ticket);
+    }
+
+    // DELETE
+    @DeleteMapping("/{id}")
+    public void deleteTicket(@PathVariable Long id){
+        ticketService.deleteTicketById(id);
+    }
+
+    @DeleteMapping
+    public void deleteAllTickets(){
+        ticketService.deleteAllTickets();
+    }
 
 
 }
