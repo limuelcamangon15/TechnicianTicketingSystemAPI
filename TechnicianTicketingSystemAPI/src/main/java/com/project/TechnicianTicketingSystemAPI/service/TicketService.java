@@ -17,7 +17,7 @@ public class TicketService {
         this.ticketRepository = ticketRepository;
     }
 
-    // CREATE
+    // Create
     public Ticket createTicket(Ticket ticket){
         return ticketRepository.save(ticket);
     }
@@ -39,6 +39,16 @@ public class TicketService {
         return ticketRepository.findAll().getLast();
     }
 
+    // DELETE
+    public void deleteTicketById(Long id){
+        ticketRepository.deleteById(id);
+    }
+
+    public void deleteAllTickets(){
+        ticketRepository.deleteAll();
+    }
+
+
     // UPDATE
     public Ticket updateTicket(Ticket ticketToUpdate){
         Ticket existingTicket  = ticketRepository.findById(ticketToUpdate.getTicketId())
@@ -59,13 +69,5 @@ public class TicketService {
         return ticketRepository.save(existingTicket );
     }
 
-    // DELETE
-    public void deleteTicketById(Long id){
-        ticketRepository.deleteById(id);
-    }
-
-    public void deleteAllTickets(){
-        ticketRepository.deleteAll();
-    }
 
 }

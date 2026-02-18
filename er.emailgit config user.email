@@ -1,0 +1,53 @@
+[33mcommit ed138df5f2cbb6871aaa34beb6f3ee39e7412d86[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Limuel <limuelcamangon15>
+Date:   Wed Feb 18 22:23:14 2026 +0800
+
+    update: added comments
+
+[33mcommit e879a0a1ae98b59cb58144ced33af8d9309f0adb[m
+Author: Limuel Camangon <limuelmartincamangon@gmail.com>
+Date:   Wed Feb 18 22:21:07 2026 +0800
+
+    added: readME
+
+[33mcommit 335d4c583583e8e6d95206fdced36be3fcfd98aa[m
+Author: Limuel <limuelcamangon15>
+Date:   Wed Feb 18 21:26:49 2026 +0800
+
+    bug fix: fixed update ticket service bug when updating only specific field
+
+[33mcommit fa3895e2b2a8cee3603c2fd4548a661e981b2136[m
+Author: Limuel <limuelcamangon15>
+Date:   Wed Feb 18 20:56:48 2026 +0800
+
+    update: added ticket controller
+
+[33mcommit 40caba3875dc2e71b3d9b685262dd03c82f17773[m
+Author: Limuel <limuelcamangon15>
+Date:   Wed Feb 18 20:56:22 2026 +0800
+
+    update: added ticket repository and ticket service
+
+[33mcommit ceb3d144389fa05efdd7f5d15ccd171c16cf17ef[m
+Author: Limuel <limuelcamangon15>
+Date:   Wed Feb 18 12:24:56 2026 +0800
+
+    update: fixed dependency errors
+
+[33mcommit 0dfa4517fa9f077e92364b753462249595c02678[m
+Author: Limuel <limuelcamangon15>
+Date:   Wed Feb 18 11:31:29 2026 +0800
+
+    update: added model and config
+
+[33mcommit 82e19a18f0baca3949bc6a303d98a83c316b2c48[m
+Author: Limuel <limuelcamangon15>
+Date:   Tue Feb 17 23:42:30 2026 +0800
+
+    update: structured the folders
+
+[33mcommit b39fef5c359e5281eceb139a5cff30beaba8a47c[m
+Author: limuelcamangon15 <limuelcamangon15>
+Date:   Tue Feb 17 01:35:24 2026 +0800
+
+    init
