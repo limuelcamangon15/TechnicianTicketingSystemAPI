@@ -17,12 +17,12 @@ public class TicketService {
         this.ticketRepository = ticketRepository;
     }
 
-    //CREATE
+    // CREATE
     public Ticket createTicket(Ticket ticket){
         return ticketRepository.save(ticket);
     }
 
-    //READ
+    // READ
     public Optional<Ticket> getTicketById(Long id){
         return ticketRepository.findById(id);
     }
@@ -39,7 +39,7 @@ public class TicketService {
         return ticketRepository.findAll().getLast();
     }
 
-    //UPDATE
+    // UPDATE
     public Ticket updateTicket(Ticket ticketToUpdate){
         Ticket existingTicket  = ticketRepository.findById(ticketToUpdate.getTicketId())
                 .orElseThrow(() -> new RuntimeException("Ticket not found!"));
@@ -59,7 +59,7 @@ public class TicketService {
         return ticketRepository.save(existingTicket );
     }
 
-    //DELETE
+    // DELETE
     public void deleteTicketById(Long id){
         ticketRepository.deleteById(id);
     }
