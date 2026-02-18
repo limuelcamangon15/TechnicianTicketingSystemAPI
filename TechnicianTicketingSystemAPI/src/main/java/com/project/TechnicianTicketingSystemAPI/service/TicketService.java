@@ -1,0 +1,62 @@
+package com.project.TechnicianTicketingSystemAPI.service;
+
+import com.project.TechnicianTicketingSystemAPI.model.Ticket;
+import com.project.TechnicianTicketingSystemAPI.repository.TicketRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class TicketService {
+
+    private final TicketRepository ticketRepository;
+
+    public TicketService(TicketRepository ticketRepository){
+        this.ticketRepository = ticketRepository;
+    }
+
+    //CREATE
+    public Ticket createTicket(Ticket ticket){
+        return ticketRepository.save(ticket);
+    }
+
+    //READ
+    public Optional<Ticket> getTicketById(Long id){
+        return ticketRepository.findById(id);
+    }
+
+    public List<Ticket> getAllTickets(){
+        return ticketRepository.findAll();
+    }
+
+    public Ticket getFirstTicket(){
+        return ticketRepository.findAll().getFirst();
+    }
+
+    public Ticket getLastTicket(){
+        return ticketRepository.findAll().getLast();
+    }
+
+    //UPDATE
+    public Ticket updateTicket(Ticket ticketToUpdate){
+        Ticket existingTicket  = ticketRepository.findById(ticketToUpdate.getTicketId())
+                .orElseThrow(() -> new RuntimeException("Ticket not found!"));
+
+        existingTicket.setDescription(ticketToUpdate.getDescription());
+        existingTicket.setStatus(ticketToUpdate.getStatus());
+        existingTicket.setResolvedAt(ticketToUpdate.getResolvedAt());
+
+        return ticketRepository.save(existingTicket );
+    }
+
+    //DELETE
+    public void deleteTicketById(Long id){
+        ticketRepository.deleteById(id);
+    }
+
+    public void deleteAllTickets(){
+        ticketRepository.deleteAll();
+    }
+
+}

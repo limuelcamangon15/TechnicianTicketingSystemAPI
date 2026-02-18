@@ -22,9 +22,11 @@ public class Ticket {
 
     private String assignedTechnician;
 
-    private String createdBy;
+    private String reportedBy;
 
     private LocalDateTime createdAt;
+
+    private LocalDateTime resolvedAt;
 
     public Ticket(){
         this.createdAt = LocalDateTime.now();
@@ -56,12 +58,16 @@ public class Ticket {
         return assignedTechnician;
     }
 
-    public String getCreatedBy(){
-        return createdBy;
+    public String getReportedBy(){
+        return reportedBy;
     }
 
     public LocalDateTime getCreatedAt(){
         return createdAt;
+    }
+
+    public LocalDateTime getResolvedAt(){
+        return resolvedAt;
     }
 
     //setters
@@ -89,11 +95,15 @@ public class Ticket {
         this.assignedTechnician = assignedTechnician;
     }
 
-    public void setCreatedBy(String createdBy){
-        this.createdBy = createdBy;
+    public void setReportedBy(String reportedBy){
+        this.reportedBy = reportedBy;
     }
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public void setResolvedAt(LocalDateTime resolvedAt){
+        this.resolvedAt = resolvedAt;
     }
 }
