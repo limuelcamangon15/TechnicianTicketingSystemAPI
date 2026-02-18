@@ -4,6 +4,7 @@ import com.project.TechnicianTicketingSystemAPI.model.Ticket;
 import com.project.TechnicianTicketingSystemAPI.repository.TicketRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,9 +44,17 @@ public class TicketService {
         Ticket existingTicket  = ticketRepository.findById(ticketToUpdate.getTicketId())
                 .orElseThrow(() -> new RuntimeException("Ticket not found!"));
 
-        existingTicket.setDescription(ticketToUpdate.getDescription());
-        existingTicket.setStatus(ticketToUpdate.getStatus());
-        existingTicket.setResolvedAt(ticketToUpdate.getResolvedAt());
+        if(ticketToUpdate.getDescription() != null && !ticketToUpdate.getDescription().equalsIgnoreCase(existingTicket.getDescription())){
+            existingTicket.setDescription(ticketToUpdate.getDescription());
+        }
+
+        if(ticketToUpdate.getStatus() != null){
+            existingTicket.setStatus(ticketToUpdate.getStatus());
+
+            if(ticketToUpdate.getStatus().equalsIgnoreCase("RESOLVED") && existingTicket.getResolvedAt() == null){
+                existingTicket.setResolvedAt(LocalDateTime.now());
+            }
+        }
 
         return ticketRepository.save(existingTicket );
     }
