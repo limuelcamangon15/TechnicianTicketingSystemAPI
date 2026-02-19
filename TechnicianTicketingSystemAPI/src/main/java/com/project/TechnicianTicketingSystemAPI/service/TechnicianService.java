@@ -1,6 +1,7 @@
 package com.project.TechnicianTicketingSystemAPI.service;
 
 import com.project.TechnicianTicketingSystemAPI.model.Technician;
+import com.project.TechnicianTicketingSystemAPI.model.Ticket;
 import com.project.TechnicianTicketingSystemAPI.repository.TechnicianRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +28,19 @@ public class TechnicianService {
 
     public List<Technician> getAllTechnicians(){
         return technicianRepository.findAll();
+    }
+
+    // UPDATE
+    public Technician updateTechnician(Technician technicianToUpdate){
+        Technician existingTechnician  = technicianRepository.findById(technicianToUpdate.getTechnicianId())
+                .orElseThrow(() -> new RuntimeException("Technician not found!"));
+
+        //need update capability: firstname, lastname, address, contactNumber, status
+        return null;
+    }
+
+    // DELETE
+    public void deleteTechnicianById(Long id){
+        technicianRepository.deleteById(id);
     }
 }

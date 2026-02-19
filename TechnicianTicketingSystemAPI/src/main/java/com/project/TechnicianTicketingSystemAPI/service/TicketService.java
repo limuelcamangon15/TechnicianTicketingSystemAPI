@@ -17,7 +17,7 @@ public class TicketService {
         this.ticketRepository = ticketRepository;
     }
 
-    // Create
+    // CREATE
     public Ticket createTicket(Ticket ticket){
         return ticketRepository.save(ticket);
     }
