@@ -47,6 +47,12 @@ public class TicketController {
         return ticketService.getLastTicket();
     }
 
+    @GetMapping("/allTicketsOfTechnician/{id}")
+    public ResponseEntity<List<Ticket>> getAllTicketsByAssignedTechnicianId(@PathVariable Long id){
+        List<Ticket> tickets = ticketService.findByAssignedTechnician_TechnicianId(id);
+        return ResponseEntity.ok(tickets);
+    }
+
     // PUT
     @PutMapping("/{id}")
     public Ticket updateTicket(@PathVariable Long id, @RequestBody Ticket ticket){

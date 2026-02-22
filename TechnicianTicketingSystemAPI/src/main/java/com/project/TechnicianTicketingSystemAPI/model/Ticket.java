@@ -20,7 +20,9 @@ public class Ticket {
 
     private String status;
 
-    private String assignedTechnician;
+    @ManyToOne
+    @JoinColumn(name = "assignedTechnician_technicianId")
+    private Technician assignedTechnician;
 
     private String reportedBy;
 
@@ -54,7 +56,7 @@ public class Ticket {
         return status;
     }
 
-    public String getAssignedTechnician(){
+    public Technician getAssignedTechnician(){
         return assignedTechnician;
     }
 
@@ -91,7 +93,7 @@ public class Ticket {
         this.status = status;
     }
 
-    public void setAssignedTechnician(String assignedTechnician) {
+    public void setAssignedTechnician(Technician assignedTechnician) {
         this.assignedTechnician = assignedTechnician;
     }
 

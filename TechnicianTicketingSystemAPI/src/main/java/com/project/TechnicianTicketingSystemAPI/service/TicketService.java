@@ -39,6 +39,10 @@ public class TicketService {
         return ticketRepository.findAll().getLast();
     }
 
+    public List<Ticket> findByAssignedTechnician_TechnicianId(Long id){
+        return ticketRepository.findByAssignedTechnician_TechnicianId(id);
+    }
+
     // UPDATE
     public Ticket updateTicket(Ticket ticketToUpdate){
         Ticket existingTicket  = ticketRepository.findById(ticketToUpdate.getTicketId())
