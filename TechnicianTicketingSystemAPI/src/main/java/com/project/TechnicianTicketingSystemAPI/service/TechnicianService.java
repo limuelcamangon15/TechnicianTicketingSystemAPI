@@ -35,8 +35,33 @@ public class TechnicianService {
         Technician existingTechnician  = technicianRepository.findById(technicianToUpdate.getTechnicianId())
                 .orElseThrow(() -> new RuntimeException("Technician not found!"));
 
-        //need update capability: firstname, lastname, address, contactNumber, status
-        return null;
+        String newFirstName = technicianToUpdate.getFirstName();
+        String newLastName = technicianToUpdate.getLastName();
+        String newAddress = technicianToUpdate.getAddress();
+        String newContactNumber = technicianToUpdate.getContactNumber();
+        String newStatus = technicianToUpdate.getStatus();
+
+        if(newFirstName != null && !existingTechnician.getFirstName().equals(newFirstName)){
+            existingTechnician.setFirstName(newFirstName);
+        }
+
+        if(newLastName != null && !existingTechnician.getLastName().equals(newLastName)){
+            existingTechnician.setLastName(newLastName);
+        }
+
+        if(newAddress != null && !existingTechnician.getAddress().equals(newAddress)){
+            existingTechnician.setAddress(newAddress);
+        }
+
+        if(newContactNumber != null  && !existingTechnician.getContactNumber().equals(newContactNumber)){
+            existingTechnician.setContactNumber(newContactNumber);
+        }
+
+        if(newStatus != null && !existingTechnician.getStatus().equals(newStatus)){
+            existingTechnician.setStatus(newStatus);
+        }
+
+        return existingTechnician;
     }
 
     // DELETE
